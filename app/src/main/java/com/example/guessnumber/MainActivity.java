@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,12 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
         myToast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
 
-        numbered_buttons_lst.add(findViewById(R.id.button_zero));
-        numbered_buttons_lst.add(findViewById(R.id.button_one));
-        numbered_buttons_lst.add(findViewById(R.id.button_two));
-        numbered_buttons_lst.add(findViewById(R.id.button_three));
-        numbered_buttons_lst.add(findViewById(R.id.button_four));
-        numbered_buttons_lst.add(findViewById(R.id.button_five));
+        numbered_buttons_lst = Arrays.asList(
+                findViewById(R.id.button_zero),
+                findViewById(R.id.button_one),
+                findViewById(R.id.button_two),
+                findViewById(R.id.button_three),
+                findViewById(R.id.button_four),
+                findViewById(R.id.button_five));
+        
         prime_digits_counter = 0;
         SetButtons();
     }
