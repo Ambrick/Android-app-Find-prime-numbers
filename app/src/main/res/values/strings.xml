@@ -1,18 +1,12 @@
 <resources>
     <string name="app_name">GuessTheNumber</string>
-    <string name="task_text">Укажи простые числа</string>
-    <string name="positive_toast">Правильно!</string>
-    <string name="negative_toast">Неправильно!</string>
-    <string name="info_button_text">Разработчики</string>
-    <string name="help_button_text">Помощь</string>
+    <string name="task_text">Choose all prime numbers</string>
+    <string name="positive_toast">Correct!</string>
+    <string name="negative_toast">Wrong!</string>
+    <string name="info_button_text">Developers</string>
+    <string name="help_button_text">Help</string>
 
-    <string name="help_text">Простое число — натуральное (целое положительное) число,
-        имеющее ровно два различных натуральных делителя — единицу и самого себя.
-        Другими словами, число x является простым, если оно больше 1
-        и при этом делится без остатка только на 1 и на x. К примеру,
-        5 — простое число, а 6 не является простым числом, так как, помимо 1
-        и 6, оно также делится на 2 и на 3.</string>
+    <string name="help_text">A prime number is a natural number greater than 1 that is not a product of two smaller natural numbers. </string>
 
-    <string name="info_text">Программа разработа студентом группы 20ВВм2
-    Страховым Александром Владимировичем</string>
+    <string name="info_text">Developed by Qs</string>
 </resources>
