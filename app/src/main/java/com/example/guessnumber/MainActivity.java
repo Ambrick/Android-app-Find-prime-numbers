@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Toast myToast;
     private List<Button> numbered_buttons_lst = new LinkedList<>();
     private Integer prime_digits_counter = 0;
+    private Integer digit_upper_boundary = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +33,23 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.button_three),
                 findViewById(R.id.button_four),
                 findViewById(R.id.button_five));
-        
-        prime_digits_counter = 0;
+
         SetButtons();
     }
 
+    //Sets generated numbers to buttons
     private void SetButtons(){
+        //Shuffle the order of the number buttons
         Collections.shuffle(numbered_buttons_lst);
+        //Set prime numbers counter to zero
         prime_digits_counter = 0;
-        List<Integer> numbers = NumberGenerator.GetGeneratedNumbers(6);
+        //Creating a list with filled with different numbers
+        List<Integer> numbers = NumberGenerator.GetRandomNumbers(numbered_buttons_lst.size(), digit_upper_boundary);
+        //For every button get the random number and display it
         for (int i = 0; i < numbered_buttons_lst.size(); i++) {
-            Integer digit = numbers.get(i);
 
-            if (PrimeDigitGenerator.isPrimeBruteForce(digit))
+            Integer digit = numbers.get(i);
+            if (NumberGenerator.isPrimeBruteForce(digit))
                 prime_digits_counter++;
 
             numbered_buttons_lst.get(i).setText(digit.toString());
@@ -54,17 +59,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnClickOnNumberButton(View view) {
         Button currentButton = (Button) view;
-        String buttonText = (String) currentButton.getText();
-        Integer buttonValue = Integer.parseInt(buttonText);
-
-        if (PrimeDigitGenerator.isPrimeBruteForce(buttonValue)) {
+        Integer buttonValue = Integer.parseInt((String) currentButton.getText());
+        //If button has prime number as a text, then
+        if (NumberGenerator.isPrimeBruteForce(buttonValue)) {
             currentButton.setVisibility(View.INVISIBLE);
-
             Integer invisible_buttons_count = 0;
+            //Get the number of clicked buttons with prime digit
             for (int i = 0; i < numbered_buttons_lst.size(); i++) {
                 if (numbered_buttons_lst.get(i).getVisibility() == View.INVISIBLE)
                     invisible_buttons_count++;
             }
+            //Check if all prime numbers were found
             if (prime_digits_counter.equals( invisible_buttons_count)) {
                 myToast.setText(R.string.positive_toast);
                 myToast.show();
@@ -72,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return;
         }
-
+        //If button is filled with non-prime digit
         myToast.setText(R.string.negative_toast);
         myToast.show();
         SetButtons();
