@@ -12,7 +12,6 @@
             android:id="@+id/TextView_Task"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#000000"
             android:gravity="center"
             android:text="@string/task_text"
             android:textAlignment="center"
@@ -23,7 +22,6 @@
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:textColor="@color/black" >
 
             <TableRow>
@@ -63,7 +61,6 @@
         style="@style/GeneralButtonStyle"
         android:onClick="OnClickOnInfoButton"
         android:text="@string/info_button_text"
-        android:textColor="#DD2C00"
         app:backgroundTintMode="add"
         tools:ignore="UsingOnClickInXml" />
 
@@ -72,7 +69,6 @@
         style="@style/GeneralButtonStyle"
         android:onClick="OnClickOnHelpButton"
         android:text="@string/help_button_text"
-        android:textColor="#DD2C00"
         app:backgroundTintMode="add"
         tools:ignore="UsingOnClickInXml" />
 
