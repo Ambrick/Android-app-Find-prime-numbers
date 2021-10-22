@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class NumberGenerator {
 
-    public static List<Integer> GeneratePrimeNumbersListWithBruteForce(int n) {
+    private List<Integer> GeneratePrimeNumbersListWithBruteForce(int n) {
         List<Integer> primeNumbers = new LinkedList<>();
         //Put every prime digit in the range between 2 and n in the list
         for (int i = 2; i <= n; i++) {
@@ -18,8 +18,17 @@ public class NumberGenerator {
         return primeNumbers;
     }
 
+    private Integer GenerateNonPrimeDigit(Integer digit_upper_boundary) {
+        Integer random_integer = new Random().nextInt(digit_upper_boundary - 2) + 2;
+
+        if (isPrimeBruteForce(random_integer))
+            random_integer= GenerateNonPrimeDigit(digit_upper_boundary);
+
+        return random_integer;
+    }
+
     //Check if number is Prime
-    public static boolean isPrimeBruteForce(Integer number) {
+    public boolean isPrimeBruteForce(Integer number) {
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 return false;
@@ -28,18 +37,9 @@ public class NumberGenerator {
         return true;
     }
 
-    public static Integer GenerateNonPrimeDigit(Integer digit_upper_boundary) {
-        Integer random_integer = new Random().nextInt(digit_upper_boundary - 2) + 2;
-
-        if (NumberGenerator.isPrimeBruteForce(random_integer))
-            random_integer= GenerateNonPrimeDigit(digit_upper_boundary);
-
-        return random_integer;
-    }
-
-    public static List<Integer> GetRandomNumbers(int total_numbers_count, int digit_upper_boundary) {
+    //Return a list, filled with generated numbers
+    public List<Integer> GetRandomNumbers(int total_numbers_count, int digit_upper_boundary) {
         List<Integer> Numbers = new LinkedList<>();
-
         List<Integer> PrimeNumbers = GeneratePrimeNumbersListWithBruteForce(digit_upper_boundary);
         //Get total count of prime numbers
         int prime_count = new Random().nextInt(total_numbers_count - 1);

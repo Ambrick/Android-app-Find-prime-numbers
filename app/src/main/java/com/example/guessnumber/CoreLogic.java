@@ -9,9 +9,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class CoreLogic {
-
-    private final Toast myToast;
+    private final NumberGenerator numberGenerator = new NumberGenerator();
     private final List<Button> numbered_buttons_lst;
+    private final Toast myToast;
     private Integer prime_digits_counter = 0;
 
     public CoreLogic(List<Button> numbered_buttons_lst, Toast myToast){
@@ -28,12 +28,12 @@ public class CoreLogic {
         //Set prime numbers counter to zero
         prime_digits_counter = 0;
         //Creating a list with filled with different numbers
-        List<Integer> numbers = NumberGenerator.GetRandomNumbers(numbered_buttons_lst.size(), 99);
+        List<Integer> numbers = numberGenerator.GetRandomNumbers(numbered_buttons_lst.size(), 99);
         //For every button get the random number and display it
         for (int i = 0; i < numbered_buttons_lst.size(); i++) {
 
             Integer digit = numbers.get(i);
-            if (NumberGenerator.isPrimeBruteForce(digit))
+            if (numberGenerator.isPrimeBruteForce(digit))
                 prime_digits_counter++;
 
             numbered_buttons_lst.get(i).setText(digit.toString());
@@ -45,7 +45,7 @@ public class CoreLogic {
         Button currentButton = (Button) view;
         Integer buttonValue = Integer.parseInt((String)currentButton.getText());
         //If button has prime number as a text, then
-        if (NumberGenerator.isPrimeBruteForce(buttonValue)) {
+        if (numberGenerator.isPrimeBruteForce(buttonValue)) {
             currentButton.setVisibility(View.INVISIBLE);
             Integer invisible_buttons_count = 0;
             //Get the number of clicked buttons with prime digit
