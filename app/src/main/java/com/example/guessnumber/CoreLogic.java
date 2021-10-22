@@ -23,7 +23,7 @@ public class CoreLogic {
 
     //Sets generated numbers to buttons
     @SuppressLint("SetTextI18n")
-    public void SetButtons(){
+    private void SetButtons(){
         //Shuffle the order of the number buttons
         Collections.shuffle(numbered_buttons_lst);
         //Set prime numbers counter to zero
@@ -36,7 +36,7 @@ public class CoreLogic {
             Integer digit = numbers.get(i);
             if (numberGenerator.isPrimeBruteForce(digit))
                 prime_digits_generated_counter++;
-            
+
             numbered_buttons_lst.get(i).setText(digit.toString());
             numbered_buttons_lst.get(i).setVisibility(View.VISIBLE);
         }

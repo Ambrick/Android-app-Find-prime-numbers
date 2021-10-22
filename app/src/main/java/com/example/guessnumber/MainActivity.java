@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
 
         coreLogic = new CoreLogic(button_list,toast);
-        coreLogic.SetButtons();
     }
 
     public void OnClickOnNumberButton(View view) {
