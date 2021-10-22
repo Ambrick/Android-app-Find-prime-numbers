@@ -12,7 +12,8 @@ public class CoreLogic {
     private final NumberGenerator numberGenerator = new NumberGenerator();
     private final List<Button> numbered_buttons_lst;
     private final Toast myToast;
-    private Integer prime_digits_counter = 0;
+    private Integer prime_digits_generated_counter;
+    private Integer prime_digits_found_counter;
 
     public CoreLogic(List<Button> numbered_buttons_lst, Toast myToast){
         this.numbered_buttons_lst = numbered_buttons_lst;
@@ -26,16 +27,16 @@ public class CoreLogic {
         //Shuffle the order of the number buttons
         Collections.shuffle(numbered_buttons_lst);
         //Set prime numbers counter to zero
-        prime_digits_counter = 0;
+        prime_digits_generated_counter = 0;
+        prime_digits_found_counter = 0;
         //Creating a list with filled with different numbers
         List<Integer> numbers = numberGenerator.GetRandomNumbers(numbered_buttons_lst.size(), 99);
         //For every button get the random number and display it
         for (int i = 0; i < numbered_buttons_lst.size(); i++) {
-
             Integer digit = numbers.get(i);
             if (numberGenerator.isPrimeBruteForce(digit))
-                prime_digits_counter++;
-
+                prime_digits_generated_counter++;
+            
             numbered_buttons_lst.get(i).setText(digit.toString());
             numbered_buttons_lst.get(i).setVisibility(View.VISIBLE);
         }
@@ -46,18 +47,14 @@ public class CoreLogic {
         Integer buttonValue = Integer.parseInt((String)currentButton.getText());
         //If button has prime number as a text, then
         if (numberGenerator.isPrimeBruteForce(buttonValue)) {
-            currentButton.setVisibility(View.INVISIBLE);
-            Integer invisible_buttons_count = 0;
-            //Get the number of clicked buttons with prime digit
-            for (int i = 0; i < numbered_buttons_lst.size(); i++) {
-                if (numbered_buttons_lst.get(i).getVisibility() == View.INVISIBLE)
-                    invisible_buttons_count++;
-            }
+            prime_digits_found_counter++;
             //Check if all prime numbers were found
-            if (prime_digits_counter.equals( invisible_buttons_count)) {
+            if (prime_digits_generated_counter.equals(prime_digits_found_counter)) {
                 myToast.setText(R.string.positive_toast);
                 myToast.show();
                 SetButtons();
+            } else {
+                currentButton.setVisibility(View.INVISIBLE);
             }
             return;
         }
