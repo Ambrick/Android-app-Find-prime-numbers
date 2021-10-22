@@ -43,7 +43,7 @@ public class CoreLogic {
 
     public void CheckSelectedNumbers(View view) {
         Button currentButton = (Button) view;
-        Integer buttonValue = Integer.parseInt((String) currentButton.getText());
+        Integer buttonValue = Integer.parseInt((String)currentButton.getText());
         //If button has prime number as a text, then
         if (NumberGenerator.isPrimeBruteForce(buttonValue)) {
             currentButton.setVisibility(View.INVISIBLE);
@@ -55,23 +55,15 @@ public class CoreLogic {
             }
             //Check if all prime numbers were found
             if (prime_digits_counter.equals( invisible_buttons_count)) {
-                ShowCorrectToast();
+                myToast.setText(R.string.positive_toast);
+                myToast.show();
                 SetButtons();
             }
             return;
         }
         //If button is filled with non-prime digit
-        ShowIncorrectToast();
-        SetButtons();
-    }
-
-    private void ShowCorrectToast() {
-        myToast.setText(R.string.positive_toast);
-        myToast.show();
-    }
-
-    private void ShowIncorrectToast() {
         myToast.setText(R.string.negative_toast);
         myToast.show();
+        SetButtons();
     }
 }
