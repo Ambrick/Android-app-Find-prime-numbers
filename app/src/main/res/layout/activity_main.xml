@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:background="@color/black"
-        android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/black">
 
         <TextView
             android:id="@+id/TextView_Task"
@@ -62,19 +58,22 @@
             </TableRow>
         </TableLayout>
 
-        <Button
-            android:id="@+id/button_info"
-            style="@style/GeneralButtonStyle"
-            app:backgroundTintMode="add"
-            android:text="@string/info_button_text"
-            android:onClick = "OnClickOnInfoButton"/>
+    <Button
+        android:id="@+id/button_info"
+        style="@style/GeneralButtonStyle"
+        android:onClick="OnClickOnInfoButton"
+        android:text="@string/info_button_text"
+        android:textColor="#DD2C00"
+        app:backgroundTintMode="add"
+        tools:ignore="UsingOnClickInXml" />
 
-        <Button
-            android:id="@+id/button_help"
-            style="@style/GeneralButtonStyle"
-            app:backgroundTintMode="add"
-            android:text="@string/help_button_text"
-            android:onClick = "OnClickOnHelpButton"/>
+    <Button
+        android:id="@+id/button_help"
+        style="@style/GeneralButtonStyle"
+        android:onClick="OnClickOnHelpButton"
+        android:text="@string/help_button_text"
+        android:textColor="#DD2C00"
+        app:backgroundTintMode="add"
+        tools:ignore="UsingOnClickInXml" />
 
-    </LinearLayout>
 </LinearLayout>
