@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">GuessTheNumber</string>
-    <string name="task_text">Укажи простые числа</string>
+    <string name="task_text">Укажи простые числа!</string>
     <string name="positive_toast">Правильно!</string>
     <string name="negative_toast">Неправильно!</string>
     <string name="info_button_text">Разработчики</string>
@@ -13,6 +13,7 @@
         5 — простое число, а 6 не является простым числом, так как, помимо 1
         и 6, оно также делится на 2 и на 3.</string>
 
-    <string name="info_text">Программа разработа студентом группы 20ВВм2
-    Страховым Александром Владимировичем</string>
+    <string name="info_text">Программа разработа студентом Пензенского Государственного университета
+    Страховым Александром.</string>
+
 </resources>
