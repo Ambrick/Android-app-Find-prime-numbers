@@ -21,15 +21,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Creating the list with "number buttons"
-        List<Button> numbered_buttons_lst = Arrays.asList(
+        List<Button> button_list = Arrays.asList(
                 findViewById(R.id.button_zero),
                 findViewById(R.id.button_one),
                 findViewById(R.id.button_two),
                 findViewById(R.id.button_three),
                 findViewById(R.id.button_four),
                 findViewById(R.id.button_five));
+        Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
 
-        coreLogic = new CoreLogic(numbered_buttons_lst,Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT));
+        coreLogic = new CoreLogic(button_list,toast);
         coreLogic.SetButtons();
     }
 
