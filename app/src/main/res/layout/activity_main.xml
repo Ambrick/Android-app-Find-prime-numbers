@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/black">
+
+        <TextView
+            android:id="@+id/TextView_Task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/task_text"
+            android:textAlignment="center"
+            android:textColor="@color/orange"
+            android:textSize="20sp"
+            android:layout_margin="10dp"/>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black" >
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/button_zero"
+                    style="@style/NumberButtonStyle"/>
+
+                <Button
+                    android:id="@+id/button_one"
+                    style="@style/NumberButtonStyle"/>
+
+                <Button
+                    android:id="@+id/button_two"
+                    style="@style/NumberButtonStyle"/>
+
+            </TableRow>
+            <TableRow>
+
+                <Button
+                    android:id="@+id/button_three"
+                    style="@style/NumberButtonStyle" />
+
+                <Button
+                    android:id="@+id/button_four"
+                    style="@style/NumberButtonStyle"/>
+
+                <Button
+                    android:id="@+id/button_five"
+                    style="@style/NumberButtonStyle"/>
+
+            </TableRow>
+        </TableLayout>
+
+    <Button
+        android:id="@+id/button_info"
+        style="@style/GeneralButtonStyle"
+        android:onClick="OnClickOnInfoButton"
+        android:text="@string/info_button_text"
+        app:backgroundTintMode="add"
+        tools:ignore="UsingOnClickInXml" />
+
+    <Button
+        android:id="@+id/button_help"
+        style="@style/GeneralButtonStyle"
+        android:onClick="OnClickOnHelpButton"
+        android:text="@string/help_button_text"
+        app:backgroundTintMode="add"
+        tools:ignore="UsingOnClickInXml" />
+
+</LinearLayout>
