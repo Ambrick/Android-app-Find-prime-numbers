@@ -15,8 +15,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/app_name" android:name="HelpActivity"/>
-        <activity android:label="@string/app_name" android:name="InfoActivity"/>
+        <activity
+            android:name=".HelpActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".ExtraHelpActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".InfoActivity"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>
