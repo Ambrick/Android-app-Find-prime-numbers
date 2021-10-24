@@ -8,33 +8,47 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CoreLogic coreLogic;
+    private QuestLogic questLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Creating the list with "number buttons"
-        List<Button> button_list = Arrays.asList(
+        final ArrayList<Button> button_list = new ArrayList<>(Arrays.asList(
                 findViewById(R.id.button_zero),
                 findViewById(R.id.button_one),
                 findViewById(R.id.button_two),
                 findViewById(R.id.button_three),
                 findViewById(R.id.button_four),
-                findViewById(R.id.button_five));
-        Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
+                findViewById(R.id.button_five)));
+        final Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
 
-        coreLogic = new CoreLogic(button_list,toast);
+        questLogic = new QuestLogic(button_list, toast);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putSerializable("customButtonsManager", questLogic.GetCurrentCustomButtonsManager());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        CustomButtonsManager customButtonsManager = (CustomButtonsManager)
+                savedInstanceState.getSerializable("customButtonsManager");
+
+        questLogic.ImplementSavedCustomButtonsManager(customButtonsManager);
     }
 
     public void OnClickOnNumberButton(View view) {
-        coreLogic.CheckSelectedNumbers(view);
+        questLogic.CheckSelectedNumbers(view);
     }
 
     public void OnClickOnHelpButton(View view) {
