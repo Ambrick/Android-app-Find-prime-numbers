@@ -6,56 +6,17 @@ import android.widget.Button;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CustomButtonsManager implements Serializable {
+public class CustomButtonsManager{
 
-    private class CustomButton{
-        private Button button_view;
-        private String button_text;
-        private Boolean is_selected;
-
-        CustomButton (Button button_view, String button_text, Boolean is_prime){
-            this.button_view = button_view;
-            this.button_text = button_text;
-            this.is_selected = false;
-
-            ShowCustomButton();
-        }
-
-        public void ShowCustomButton(){
-            this.button_view.setText(button_text);
-            SetVisibilityOfTheButton();
-        }
-
-        public void RefreshView(Button new_view){
-            button_view = new_view;
-            SetVisibilityOfTheButton();
-        }
-
-        private void SetVisibilityOfTheButton(){
-            if (is_selected)
-                this.button_view.setVisibility(View.INVISIBLE);
-            else
-                this.button_view.setVisibility(View.VISIBLE);
-        }
-
-        public void CustomButtonWasSelected(){
-            is_selected = true;
-            button_view.setVisibility(View.INVISIBLE);
-        }
-
-        public Boolean CheckIfEqualButton(Button another_view){
-            return button_view.equals(another_view);
-        }
-    }
+    private final Integer rangeForGeneratingRandomDigits= 99;
+    private final NumberGenerator numberGenerator= new NumberGenerator(rangeForGeneratingRandomDigits);
 
     private ArrayList<CustomButton> customButtonList = new ArrayList<>();
     private Integer generated_prime_digits_counter = 0;
     private Integer selected_prime_digits_counter = 0;
 
-    public void AddCustomButton(Button button_view, String button_text, Boolean isPrime){
-        customButtonList.add(new CustomButton(button_view, button_text, isPrime));
-        if (isPrime)
-            generated_prime_digits_counter++;
+    public Boolean CheckIfPrime(Integer value) {
+        return numberGenerator.isPrime(value);
     }
 
     public Boolean CheckIfAllPrimeNumbersAreSelected(){
@@ -76,11 +37,72 @@ public class CustomButtonsManager implements Serializable {
             button.ShowCustomButton();
     }
 
+    void NullifyQuestDigits(){
+        generated_prime_digits_counter = 0;
+        selected_prime_digits_counter = 0;
+        customButtonList.clear();
+    }
+
     //You give new Button View that was recreated in MainActivity to saved buttons
-    public void MergeButtons(ArrayList<Button> new_list_of_button_views){
-        ArrayList<Button> copy_of_array = new ArrayList<>(new_list_of_button_views);
+    public void GetNewDigits(ArrayList<Button> buttonsList){
+        NullifyQuestDigits();
+        //Creating a list with filled with different numbers
+        ArrayList<Integer> numbers = numberGenerator.GetListWithRandomNumbers(buttonsList.size());
+        //For every button get the random number and display it
+        for (int i = 0; i < buttonsList.size(); i++) {
+            Integer digit = numbers.get(i);
+            customButtonList.add(new CustomButton(buttonsList.get(i), digit.toString(), false));
+
+            if (numberGenerator.isPrime(digit))
+                generated_prime_digits_counter++;
+        }
+    }
+
+    public void ImplementSavedQuestState(ArrayList<Button> buttonList,
+                                         ArrayList<String> valuesList,
+                                         ArrayList<String> isSelectedList) {
+        NullifyQuestDigits();
+        for (int i = 0; i < buttonList.size(); i++)
+        {
+            String value = valuesList.get(i);
+            Boolean isSelected = false;
+            if (isSelectedList.get(i).equals("1")) {
+                isSelected = true;
+                selected_prime_digits_counter++;
+            }
+
+            if (numberGenerator.isPrime(Integer.parseInt(value)))
+                generated_prime_digits_counter++;
+
+            customButtonList.add(new CustomButton(buttonList.get(i), value, isSelected));
+        }
+        ShowButtons();
+    }
+
+    public String GivePrimeNumberFromGeneratedDigits(){
+        for (CustomButton button : customButtonList) {
+            Integer value = Integer.parseInt(button.GetValue());
+            if (numberGenerator.isPrime(value) && button.GetIfSelected().equals("0"))
+                return button.GetValue();
+        }
+        return "";
+    }
+
+    public ArrayList<String> GetCurrentDigitsList() {
+        ArrayList<String> final_array = new ArrayList<>();
 
         for (CustomButton button : customButtonList)
-            button.RefreshView(copy_of_array.remove(0));
+            final_array.add(button.GetValue());
+
+        return final_array;
+    }
+
+    public ArrayList<String> GetCurrentSelectedList() {
+        ArrayList<String> final_array = new ArrayList<>();
+
+        for (CustomButton button : customButtonList)
+            final_array.add(button.GetIfSelected());
+
+        return final_array;
     }
 }

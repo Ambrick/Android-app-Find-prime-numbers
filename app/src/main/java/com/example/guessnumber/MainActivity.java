@@ -35,16 +35,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putSerializable("customButtonsManager", questLogic.GetCurrentCustomButtonsManager());
+        savedInstanceState.putStringArrayList("quest_buttons_digit", questLogic.GetCurrentDigitsList());
+        savedInstanceState.putStringArrayList("quest_buttons_isSelected", questLogic.GetCurrentSelectedList());
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        CustomButtonsManager customButtonsManager = (CustomButtonsManager)
-                savedInstanceState.getSerializable("customButtonsManager");
 
-        questLogic.ImplementSavedCustomButtonsManager(customButtonsManager);
+        final ArrayList<String> quest_buttons_digit_list = savedInstanceState.getStringArrayList("quest_buttons_digit");
+        final ArrayList<String> quest_buttons_isSelected_list = savedInstanceState.getStringArrayList("quest_buttons_isSelected");
+
+        questLogic.ImplementSavedQuestState(quest_buttons_digit_list, quest_buttons_isSelected_list);
     }
 
     public void OnClickOnNumberButton(View view) {
@@ -52,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnClickOnHelpButton(View view) {
-        Intent intent = new Intent(this, HelpActivity.class);
+        Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+        intent.putExtra(HelpActivity.EXTRA_INDEX_OF_QUEST, questLogic.GiveAHint());
         startActivity(intent);
     }
 
