@@ -40,10 +40,10 @@ public class NumberGenerator {
     public ArrayList<Integer> GetListWithRandomNumbers(int total_buttons_count) {
 
         int primeCount = 1 + new Random().nextInt(total_buttons_count - 1);
-        ArrayList<Integer> generatedListWithPrimeDigits = GenerateListWithDigits(primeCount, list_with_prime_numbers);
+        ArrayList<Integer> generatedListWithPrimeDigits = GenerateListWithDigitsFromList(primeCount, list_with_prime_numbers);
 
         int nonPrimeCount = total_buttons_count - primeCount;
-        ArrayList<Integer> generatedListWithNonPrimeDigits = GenerateListWithDigits(nonPrimeCount, list_with_non_prime_numbers);
+        ArrayList<Integer> generatedListWithNonPrimeDigits = GenerateListWithDigitsFromList(nonPrimeCount, list_with_non_prime_numbers);
 
         generatedListWithPrimeDigits.addAll(generatedListWithNonPrimeDigits);
         //Shuffle the list
@@ -52,15 +52,15 @@ public class NumberGenerator {
     }
 
     //Generate list filled with random digits from list
-    private ArrayList<Integer> GenerateListWithDigits(int listSize, ArrayList<Integer> listWithDigits){
-        ArrayList<Integer> generatedListWithNonPrimeDigits = new ArrayList<>();
+    private ArrayList<Integer> GenerateListWithDigitsFromList(int listSize, ArrayList<Integer> listWithDigits){
+        ArrayList<Integer> generatedListWithDigits = new ArrayList<>();
         int SizeOfListWithDigits = listWithDigits.size();
 
         for (int i = 0; i < listSize; i++){
             int index_of_prime_digit = (int) (Math.random() * (SizeOfListWithDigits - 1));
             Integer prime_digit = listWithDigits.get(index_of_prime_digit);
-            generatedListWithNonPrimeDigits.add(prime_digit);
+            generatedListWithDigits.add(prime_digit);
         }
-        return generatedListWithNonPrimeDigits;
+        return generatedListWithDigits;
     }
 }
