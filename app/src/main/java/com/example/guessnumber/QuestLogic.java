@@ -9,20 +9,24 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class GuessLogic implements Serializable {
+public class QuestLogic implements Serializable {
 
-    public CustomButtonsManager customButtonsManager;
+    private CustomButtonsManager customButtonsManager;
     private NumberGenerator numberGenerator;
     private Toast myToast;
-    private ArrayList<Button> button_list = new ArrayList<>();
+    private ArrayList<Button> button_list;
     private Integer upper_boundary = 99;
 
-    public GuessLogic(ArrayList<Button> buttons_list, Toast myToast){
+    public QuestLogic(ArrayList<Button> buttons_list, Toast myToast){
         numberGenerator = new NumberGenerator(upper_boundary);
         this.myToast = myToast;
         this.button_list = buttons_list;
 
         RefreshCustomButtonManager();
+    }
+
+    public CustomButtonsManager GetCurrentCustomButtonsManager(){
+        return customButtonsManager;
     }
 
     public void ImplementSavedCustomButtonsManager(CustomButtonsManager customButtonsManager){
