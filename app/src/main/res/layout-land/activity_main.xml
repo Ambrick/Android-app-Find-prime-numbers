@@ -29,11 +29,15 @@
             style="@style/NumberButtonStyle" />
 
         <Button
+            android:id="@+id/button_one"
+            style="@style/NumberButtonStyle" />
+
+        <Button
             android:id="@+id/button_two"
             style="@style/NumberButtonStyle" />
 
         <Button
-            android:id="@+id/button_one"
+            android:id="@+id/button_three"
             style="@style/NumberButtonStyle" />
 
         <Button
@@ -44,9 +48,6 @@
             android:id="@+id/button_five"
             style="@style/NumberButtonStyle" />
 
-        <Button
-            android:id="@+id/button_three"
-            style="@style/NumberButtonStyle" />
     </LinearLayout>
 
     <LinearLayout
