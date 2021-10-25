@@ -21,12 +21,9 @@ Add features to the app:
 - Add landscape mode to app
 - App should save the "Guess session" after changing phone orientation or switching to another app;
 #### Task 2. Result visualisation:
-* Saving in landscape mode
+* Saving guess state in landscape mode and after switching
 
 ![Alt Text](https://media.giphy.com/media/ss21bfPAVmzNzJgQxg/giphy.gif)
-
-* Saving after switching to another app
-
 ![Alt Text](https://media.giphy.com/media/TDsNFj2pdp5zVpwVFi/giphy.gif)
 #### Task 3:
 Add features to the app:
