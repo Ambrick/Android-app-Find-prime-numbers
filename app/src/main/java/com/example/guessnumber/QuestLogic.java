@@ -1,11 +1,20 @@
 package com.example.guessnumber;
 
+import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.io.Serializable;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 //Класс управляет игровое логикой: контролирует выбор чисел,
 //проверяет условия успешного и не успешного выбора и выдает соответствующую информацию
@@ -42,6 +51,11 @@ public class QuestLogic{
         myToast.setText(R.string.negative_toast);
         myToast.show();
         customButtonsManager.GetNewDigits(button_list);
+    }
+
+    public void MakeAToast(String toastMessage) {
+        myToast.setText(toastMessage);
+        myToast.show();
     }
 
     public String GiveAHint(){

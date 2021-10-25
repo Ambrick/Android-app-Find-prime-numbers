@@ -1,11 +1,16 @@
 package com.example.guessnumber;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -32,6 +37,21 @@ public class MainActivity extends AppCompatActivity {
         questLogic = new QuestLogic(button_list, toast);
     }
 
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if(result.getResultCode() == 123)
+                        questLogic.MakeAToast(getString(R.string.help_was_used_toast));
+                    else if (result.getResultCode() == 321) {
+                        Intent data = result.getData();
+                        String hintValue = data.getStringExtra("HINT_VALUE");
+                        questLogic.MakeAToast(getString(R.string.extra_help_was_used_toast) + hintValue);
+                    }
+                }
+            });
+
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -49,18 +69,18 @@ public class MainActivity extends AppCompatActivity {
         questLogic.ImplementSavedQuestState(quest_buttons_digit_list, quest_buttons_isSelected_list);
     }
 
-    public void OnClickOnNumberButton(View view) {
-        questLogic.CheckSelectedNumbers(view);
-    }
-
     public void OnClickOnHelpButton(View view) {
-        Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+        Intent intent = new Intent(this, HelpActivity.class);
         intent.putExtra(HelpActivity.EXTRA_INDEX_OF_QUEST, questLogic.GiveAHint());
-        startActivity(intent);
+        someActivityResultLauncher.launch(intent);
     }
 
     public void OnClickOnInfoButton(View view) {
         Intent intent = new Intent(this, InfoActivity.class);
         startActivity(intent);
+    }
+
+    public void OnClickOnNumberButton(View view) {
+        questLogic.CheckSelectedNumbers(view);
     }
 }
