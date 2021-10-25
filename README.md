@@ -7,7 +7,7 @@ Create the app that:
 - After each tap you should get a toast with certain signal;
 - Also has 2 buttons with additional windows about developers and about prime numbers.
 #### Task 1. Result visualisation:
-* Positive and negative toasts
+* Working app with positive and negative toasts
 
 ![Alt Text](https://media.giphy.com/media/UkXwXVy62us1TkT2dg/giphy.gif)
 ![Alt Text](https://media.giphy.com/media/zau90uiGr5g8m9n2NS/giphy.gif)
