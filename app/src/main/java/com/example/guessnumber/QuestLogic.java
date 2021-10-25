@@ -41,19 +41,24 @@ public class QuestLogic{
             customButtonsManager.ChangeSelectedStateInCustomButton(currentButton);
             //Check if all prime numbers were found
             if (customButtonsManager.CheckIfAllPrimeNumbersAreSelected()) {
-                myToast.setText(R.string.positive_toast);
-                myToast.show();
+                MakeAToast(R.string.positive_toast);
                 customButtonsManager.GetNewDigits(button_list);
             }
+            else
+                MakeAToast(R.string.more_toast);
             return;
         }
         //If button is filled with non-prime digit
-        myToast.setText(R.string.negative_toast);
-        myToast.show();
+        MakeAToast(R.string.negative_toast);
         customButtonsManager.GetNewDigits(button_list);
     }
 
     public void MakeAToast(String toastMessage) {
+        myToast.setText(toastMessage);
+        myToast.show();
+    }
+
+    public void MakeAToast(int toastMessage) {
         myToast.setText(toastMessage);
         myToast.show();
     }

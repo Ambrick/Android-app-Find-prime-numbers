@@ -8,6 +8,7 @@
 
     <string name="positive_toast">Правильно!</string>
     <string name="negative_toast">Неправильно!</string>
+    <string name="more_toast">Найди еще!</string>
     <string name="help_was_used_toast">О, забыл что такое простое число?</string>
     <string name="extra_help_was_used_toast">"Супер подсказка? Жми на "</string>
 
