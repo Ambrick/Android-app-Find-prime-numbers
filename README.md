@@ -1,8 +1,6 @@
 ### "Guess The Prime Numbers"
-
 #### About:
 Android application "Guess The Prime Numbers" is a simple project for learning the basics of mobile software development on Java.
-
 #### Task 1:
 Create the app that:
 - Has 6 buttons with random numbers, that you can tap;
@@ -15,7 +13,6 @@ Create the app that:
 ##### -Additional windows
 ![Alt Text](https://media.giphy.com/media/wnsvLj4oo4CIhUlZJ6/giphy.gif)
 ![Alt Text](https://media.giphy.com/media/OupWijKSDoOUXydnKw/giphy.gif)
-
 #### Task 2:
 Add features to the app:
 - Add landscape mode to app
@@ -25,7 +22,6 @@ Add features to the app:
 ![Alt Text](https://media.giphy.com/media/ss21bfPAVmzNzJgQxg/giphy.gif)
 ##### -Saving after switching to another app
 ![Alt Text](https://media.giphy.com/media/TDsNFj2pdp5zVpwVFi/giphy.gif)
-
 #### Task 3:
 Add features to the app:
 - Add extra help window with hint;
@@ -35,6 +31,5 @@ Add features to the app:
 ![Alt Text](https://media.giphy.com/media/AcBEwjJcUIaMzX3Kyt/giphy.gif)
 ##### -Tracking Extra help usage
 ![Alt Text](https://media.giphy.com/media/faCqSGHkrlxy2sDGIs/giphy.gif)
-
-### "Guess The Prime Numbers" final visualisation
+#### Final visualisation
 ![Alt Text](https://media.giphy.com/media/aQKDlZXNshhJgGdB6U/giphy.gif)
