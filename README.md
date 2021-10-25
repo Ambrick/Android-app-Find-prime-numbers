@@ -1,6 +1,6 @@
-### "Guess The Prime Numbers"
+### "Guess the Prime Numbers"
 #### About:
-Android application "Guess The Prime Numbers" is a simple project for learning the basics of mobile software development on Java.
+Android application "Guess the Prime Numbers" is a simple project for learning the basics of mobile software development on Java.
 #### Task 1:
 Create the app that:
 - Has 6 buttons with random numbers, that you can tap;
