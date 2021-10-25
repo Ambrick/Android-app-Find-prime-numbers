@@ -4,3 +4,5 @@ User choose amoung six digits prime numbers. If he taps all of them, then he get
 if not the negative one. Also there are two additional "activities" for info about prime numbers and developers.
 
 Watch the video "GuessTheNumber_AndroidTest.mp4" in root directory, to get the understanding of the project.
+
+(https://media.giphy.com/media/lz67zZWfWPsWnuGH0s/giphy.gif)
