@@ -30,12 +30,9 @@ Add features to the app:
 - Add extra help window with hint;
 - Add tracking to help and extra help usage;
 #### Task 3. Result visualisation:
-* Tracking Help usage
+* New toast messages after help and extra help usage
 
 ![Alt Text](https://media.giphy.com/media/AcBEwjJcUIaMzX3Kyt/giphy.gif)
-
-* Tracking Extra help usage
-
 ![Alt Text](https://media.giphy.com/media/faCqSGHkrlxy2sDGIs/giphy.gif)
 
 #### Final visualisation
