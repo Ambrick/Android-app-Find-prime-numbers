@@ -12,5 +12,7 @@ Watch the video "GuessTheNumber_AndroidTest.mp4" in root directory, to get the u
 <br>
 ![Alt Text](https://media.giphy.com/media/TDsNFj2pdp5zVpwVFi/giphy.gif)
 <br>
-![Alt Text](https://media.giphy.com/media/faCqSGHkrlxy2sDGIs/giphy.gif)
 ![Alt Text](https://media.giphy.com/media/AcBEwjJcUIaMzX3Kyt/giphy.gif)
+![Alt Text](https://media.giphy.com/media/faCqSGHkrlxy2sDGIs/giphy.gif)
+<br>
+![Alt Text](https://giphy.com/gifs/android-java-aQKDlZXNshhJgGdB6U)
