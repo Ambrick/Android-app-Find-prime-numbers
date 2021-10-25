@@ -10,6 +10,7 @@ Create the app that:
 * Positive and negative toasts 
 ![Alt Text](https://media.giphy.com/media/UkXwXVy62us1TkT2dg/giphy.gif)
 ![Alt Text](https://media.giphy.com/media/zau90uiGr5g8m9n2NS/giphy.gif)
+
 * Additional windows
 ![Alt Text](https://media.giphy.com/media/wnsvLj4oo4CIhUlZJ6/giphy.gif)
 ![Alt Text](https://media.giphy.com/media/OupWijKSDoOUXydnKw/giphy.gif)
@@ -20,6 +21,7 @@ Add features to the app:
 #### Task 2. Result visualisation:
 * Saving in landscape mode
 ![Alt Text](https://media.giphy.com/media/ss21bfPAVmzNzJgQxg/giphy.gif)
+
 * Saving after switching to another app
 ![Alt Text](https://media.giphy.com/media/TDsNFj2pdp5zVpwVFi/giphy.gif)
 #### Task 3:
@@ -29,7 +31,9 @@ Add features to the app:
 #### Task 3. Result visualisation:
 * Tracking Help usage
 ![Alt Text](https://media.giphy.com/media/AcBEwjJcUIaMzX3Kyt/giphy.gif)
+
 * Tracking Extra help usage
 ![Alt Text](https://media.giphy.com/media/faCqSGHkrlxy2sDGIs/giphy.gif)
+
 #### Final visualisation
 ![Alt Text](https://media.giphy.com/media/aQKDlZXNshhJgGdB6U/giphy.gif)
