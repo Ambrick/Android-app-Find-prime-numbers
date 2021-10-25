@@ -5,4 +5,5 @@ if not the negative one. Also there are two additional "activities" for info abo
 
 Watch the video "GuessTheNumber_AndroidTest.mp4" in root directory, to get the understanding of the project.
 
-(https://media.giphy.com/media/lz67zZWfWPsWnuGH0s/giphy.gif)
+
+![Alt Text](https://media.giphy.com/media/lz67zZWfWPsWnuGH0s/giphy.gif)
