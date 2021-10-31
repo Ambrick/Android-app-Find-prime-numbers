@@ -73,7 +73,6 @@ public class CustomButtonsManager{
 
             customButtonList.add(new CustomButton(buttonList.get(i), value, isSelected));
         }
-        ShowButtons();
     }
 
     public String GivePrimeNumberFromGeneratedDigits(){
