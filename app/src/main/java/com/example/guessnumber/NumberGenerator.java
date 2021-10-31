@@ -52,14 +52,14 @@ public class NumberGenerator {
 
     //Generate list filled with random digits from list
     private ArrayList<Integer> GenerateListWithDigitsFromList(int listSize, ArrayList<Integer> listWithDigits){
-        ArrayList<Integer> generatedListWithDigits = new ArrayList<>();
-        int SizeOfListWithDigits = listWithDigits.size();
+        ArrayList<Integer> finalList = new ArrayList<>();
+        int SizeOfFinalList = listWithDigits.size();
 
         for (int i = 0; i < listSize; i++){
-            int index_of_prime_digit = (int) (Math.random() * (SizeOfListWithDigits - 1));
-            Integer prime_digit = listWithDigits.get(index_of_prime_digit);
-            generatedListWithDigits.add(prime_digit);
+            int index_of_prime_digit = (int) (Math.random() * (SizeOfFinalList - 1));
+            int prime_digit = listWithDigits.get(index_of_prime_digit);
+            finalList.add(prime_digit);
         }
-        return generatedListWithDigits;
+        return finalList;
     }
 }
