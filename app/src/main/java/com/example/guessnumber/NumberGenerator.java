@@ -2,22 +2,20 @@ package com.example.guessnumber;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 
 public class NumberGenerator {
 
-    private final ArrayList<Integer> list_with_prime_numbers = new ArrayList<>();
-    private final ArrayList<Integer> list_with_non_prime_numbers=  new ArrayList<>();
+    private final ArrayList<Integer> listWithPrimeNumbers = new ArrayList<>();
+    private final ArrayList<Integer> listWithNonPrimeNumbers =  new ArrayList<>();
 
     public NumberGenerator (Integer upper_boundary) {
         //Filling the lists with prime and nonPrime numbers
         for (int i = 2; i <= upper_boundary; i++) {
             if (isPrimeByBruteForce(i))
-                list_with_prime_numbers.add(i);
+                listWithPrimeNumbers.add(i);
             else
-                list_with_non_prime_numbers.add(i);
+                listWithNonPrimeNumbers.add(i);
         }
     }
 
@@ -32,17 +30,17 @@ public class NumberGenerator {
 
     //Check if number is Prime
     public boolean isPrime(Integer number) {
-        return list_with_prime_numbers.contains(number);
+        return listWithPrimeNumbers.contains(number);
     }
 
     //Return list, filled with generated numbers
     public ArrayList<Integer> GetListWithRandomNumbers(int total_buttons_count) {
 
         int primeCount = 1 + new Random().nextInt(total_buttons_count - 1);
-        ArrayList<Integer> generatedListWithPrimeDigits = GenerateListWithDigitsFromList(primeCount, list_with_prime_numbers);
+        ArrayList<Integer> generatedListWithPrimeDigits = GenerateListWithDigitsFromList(primeCount, listWithPrimeNumbers);
 
         int nonPrimeCount = total_buttons_count - primeCount;
-        ArrayList<Integer> generatedListWithNonPrimeDigits = GenerateListWithDigitsFromList(nonPrimeCount, list_with_non_prime_numbers);
+        ArrayList<Integer> generatedListWithNonPrimeDigits = GenerateListWithDigitsFromList(nonPrimeCount, listWithNonPrimeNumbers);
 
         generatedListWithPrimeDigits.addAll(generatedListWithNonPrimeDigits);
         //Shuffle the list

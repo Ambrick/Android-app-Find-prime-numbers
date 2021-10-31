@@ -9,29 +9,29 @@ public class CustomButtonsManager{
     private final NumberGenerator numberGenerator= new NumberGenerator(rangeForGeneratingRandomDigits);
 
     private ArrayList<CustomButton> customButtonList = new ArrayList<>();
-    private Integer generated_prime_digits_counter = 0;
-    private Integer selected_prime_digits_counter = 0;
+    private Integer generatedPrimeDigitsCounter = 0;
+    private Integer selectedPrimeDigitsCounter = 0;
 
     public Boolean CheckIfPrime(Integer value) {
         return numberGenerator.isPrime(value);
     }
 
     public Boolean CheckIfAllPrimeNumbersAreSelected(){
-        return generated_prime_digits_counter.equals(selected_prime_digits_counter);
+        return generatedPrimeDigitsCounter.equals(selectedPrimeDigitsCounter);
     }
 
     public void ChangeSelectedStateInCustomButton(Button button_view){
         for (CustomButton button : customButtonList) {
             if (button.CheckIfEqualButton(button_view)) {
                 button.CustomButtonWasSelected();
-                selected_prime_digits_counter++;
+                selectedPrimeDigitsCounter++;
             }
         }
     }
 
     void NullifyQuestDigits(){
-        generated_prime_digits_counter = 0;
-        selected_prime_digits_counter = 0;
+        generatedPrimeDigitsCounter = 0;
+        selectedPrimeDigitsCounter = 0;
         customButtonList.clear();
     }
 
@@ -46,7 +46,7 @@ public class CustomButtonsManager{
             customButtonList.add(new CustomButton(buttonsList.get(i), digit.toString(), false));
 
             if (numberGenerator.isPrime(digit))
-                generated_prime_digits_counter++;
+                generatedPrimeDigitsCounter++;
         }
     }
 
@@ -60,11 +60,11 @@ public class CustomButtonsManager{
             Boolean isSelected = false;
             if (isSelectedList.get(i).equals("1")) {
                 isSelected = true;
-                selected_prime_digits_counter++;
+                selectedPrimeDigitsCounter++;
             }
 
             if (numberGenerator.isPrime(Integer.parseInt(value)))
-                generated_prime_digits_counter++;
+                generatedPrimeDigitsCounter++;
 
             customButtonList.add(new CustomButton(buttonList.get(i), value, isSelected));
         }

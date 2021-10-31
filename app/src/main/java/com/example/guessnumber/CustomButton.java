@@ -5,43 +5,43 @@ import android.widget.Button;
 
 public class CustomButton {
 
-    private Button button_view;
-    private String button_text;
-    private Boolean is_selected;
+    private Button buttonView;
+    private String buttonText;
+    private Boolean isSelected;
 
-    CustomButton(Button button_view, String button_text, Boolean is_selected) {
-        this.button_view = button_view;
-        this.button_text = button_text;
-        this.is_selected = is_selected;
+    CustomButton(Button buttonView, String button_text, Boolean is_selected) {
+        this.buttonView = buttonView;
+        this.buttonText = button_text;
+        this.isSelected = is_selected;
         ShowCustomButton();
     }
 
     public void ShowCustomButton() {
-        this.button_view.setText(button_text);
+        this.buttonView.setText(buttonText);
         SetVisibilityOfTheButton();
     }
 
     private void SetVisibilityOfTheButton() {
-        if (is_selected)
-            this.button_view.setVisibility(View.INVISIBLE);
+        if (isSelected)
+            this.buttonView.setVisibility(View.INVISIBLE);
         else
-            this.button_view.setVisibility(View.VISIBLE);
+            this.buttonView.setVisibility(View.VISIBLE);
     }
 
     public void CustomButtonWasSelected() {
-        is_selected = true;
-        button_view.setVisibility(View.INVISIBLE);
+        isSelected = true;
+        buttonView.setVisibility(View.INVISIBLE);
     }
 
-    public Boolean CheckIfEqualButton(Button another_view) {
-        return button_view.equals(another_view);
+    public Boolean CheckIfEqualButton(Button anotherView) {
+        return buttonView.equals(anotherView);
     }
 
     public String GetValue(){
-        return button_text;
+        return buttonText;
     }
 
     public String GetIfSelected() {
-        return is_selected ? "1" : "0";
+        return isSelected ? "1" : "0";
     }
 }
