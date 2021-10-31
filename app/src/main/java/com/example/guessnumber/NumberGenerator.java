@@ -23,11 +23,10 @@ public class NumberGenerator {
 
     //Check if number is Prime by BruteForce
     private boolean isPrimeByBruteForce(Integer number) {
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
+        for (int i = 2; i < number; i++)
+            if (number % i == 0)
                 return false;
-            }
-        }
+                
         return true;
     }
 
