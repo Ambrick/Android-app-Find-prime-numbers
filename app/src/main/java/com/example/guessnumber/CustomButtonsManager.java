@@ -1,9 +1,6 @@
 package com.example.guessnumber;
 
-import android.view.View;
 import android.widget.Button;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CustomButtonsManager{
