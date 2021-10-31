@@ -29,11 +29,6 @@ public class CustomButtonsManager{
         }
     }
 
-    public void ShowButtons(){
-        for (CustomButton button : customButtonList)
-            button.ShowCustomButton();
-    }
-
     void NullifyQuestDigits(){
         generated_prime_digits_counter = 0;
         selected_prime_digits_counter = 0;
