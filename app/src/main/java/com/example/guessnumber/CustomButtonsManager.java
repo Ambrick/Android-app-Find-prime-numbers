@@ -57,7 +57,7 @@ public class CustomButtonsManager{
         for (int i = 0; i < buttonList.size(); i++)
         {
             String value = valuesList.get(i);
-            Boolean isSelected = false;
+            boolean isSelected = false;
             if (isSelectedList.get(i).equals("1")) {
                 isSelected = true;
                 selectedPrimeDigitsCounter++;
