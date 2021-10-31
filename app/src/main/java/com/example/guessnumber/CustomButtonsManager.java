@@ -33,7 +33,8 @@ public class CustomButtonsManager{
     }
 
     public void ShowButtons(){
-        customButtonList.ForEach(button -> button.ShowCustomButton());
+        for (CustomButton button : customButtonList)
+            button.ShowCustomButton();
     }
 
     void NullifyQuestDigits(){
